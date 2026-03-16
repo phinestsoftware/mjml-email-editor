@@ -152,7 +152,7 @@ function createElement(
   type: string,
   props?: React.ClassAttributes<Element> & {
     style?: {} | undefined;
-    children?: JSX.Element[] | null;
+    children?: React.JSX.Element[] | null;
     key: string | number;
     tabIndex?: string;
     class?: string;

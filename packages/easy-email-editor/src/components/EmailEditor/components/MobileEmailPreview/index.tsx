@@ -2,20 +2,15 @@ import React from 'react';
 
 import iphoneFrame from '@/assets/images/iphone.png';
 import { ActiveTabKeys } from '@/components/Provider/BlocksProvider';
-import { SYNC_SCROLL_ELEMENT_CLASS_NAME } from '@/constants';
 import { usePreviewEmail } from '@/hooks/usePreviewEmail';
-import { SyncScrollIframeComponent } from '@/components/UI/SyncScrollIframeComponent';
-import { classnames } from '@/utils/classnames';
 import { useActiveTab } from '@/hooks/useActiveTab';
 
 const MOBILE_WIDTH = 320;
 const MOBILE_Height = 640;
 
 export function MobileEmailPreview() {
-  const { mobileWidth } = usePreviewEmail();
+  const { mobileWidth, html, errMsg } = usePreviewEmail();
   const { activeTab } = useActiveTab();
-
-  const { errMsg, reactNode } = usePreviewEmail();
 
   const isActive = activeTab === ActiveTabKeys.MOBILE;
 
@@ -27,6 +22,8 @@ export function MobileEmailPreview() {
     );
   }
 
+  // Use srcdoc iframe for preview — avoids React 19 createPortal issues
+  // with iframe document.body containers
   return (
     <div
       className='easy-email-overlay'
@@ -79,36 +76,15 @@ export function MobileEmailPreview() {
               overflow: 'hidden',
             }}
           >
-            <SyncScrollIframeComponent
-              isActive={isActive}
+            <iframe
+              title='mobile-preview'
+              srcDoc={html || ''}
               style={{
                 border: 'none',
                 height: '100%',
                 width: '100%',
               }}
-            >
-              <style>
-                {`
-            *::-webkit-scrollbar {
-              -webkit-appearance: none;
-              width: 0px;
-            }
-          `}
-              </style>
-              <div
-                className={classnames(
-                  'preview-container',
-                  SYNC_SCROLL_ELEMENT_CLASS_NAME,
-                )}
-                style={{
-                  height: '100%',
-                  overflow: 'auto',
-                  margin: 'auto',
-                }}
-              >
-                <>{reactNode}</>
-              </div>
-            </SyncScrollIframeComponent>
+            />
           </div>
         </div>
       </div>

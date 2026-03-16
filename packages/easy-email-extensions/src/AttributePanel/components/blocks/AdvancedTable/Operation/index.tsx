@@ -12,7 +12,7 @@ export function TableOperation() {
   const bottomRef = useRef(null);
   const leftRef = useRef(null);
   const rightRef = useRef(null);
-  const tool = useRef<TableColumnTool>();
+  const tool = useRef<TableColumnTool>(undefined as any);
 
   const portalTarget = shadowRoot?.querySelector('body') || null;
 

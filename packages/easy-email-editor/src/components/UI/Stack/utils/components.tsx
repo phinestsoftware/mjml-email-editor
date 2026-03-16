@@ -43,7 +43,7 @@ export function isElementOfType<P>(
   const { type: defaultType } = element;
   // Type override allows components to bypass default wrapping behavior. Ex: Stack, ResourceList...
   // See https://github.com/Shopify/app-extension-libs/issues/996#issuecomment-710437088
-  const overrideType = element.props?.__type__;
+  const overrideType = (element.props as any)?.__type__;
   const type = overrideType || defaultType;
   const Components = Array.isArray(Component) ? Component : [Component];
 
@@ -73,7 +73,7 @@ export function ConditionalWrapper({
   condition,
   wrapper,
   children,
-}: ConditionalWrapperProps): JSX.Element {
+}: ConditionalWrapperProps): React.JSX.Element {
   return condition ? wrapper(children) : children;
 }
 
@@ -85,7 +85,7 @@ interface ConditionalRenderProps {
 export function ConditionalRender({
   condition,
   children,
-}: ConditionalRenderProps): JSX.Element {
+}: ConditionalRenderProps): React.JSX.Element {
   return condition ? children : null;
 }
 

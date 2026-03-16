@@ -1,11 +1,11 @@
 import React__default from "react";
 import { c as commonjsGlobal } from "./index2.js";
 import "react-dom";
+import "react-dom/client";
 import "easy-email-editor";
 import "easy-email-core";
 import "react-final-form";
 import "uuid";
-import "react-dom/client";
 import "mjml-browser";
 var codemirror$1 = "";
 var material = "";

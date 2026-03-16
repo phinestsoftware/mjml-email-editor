@@ -12,6 +12,12 @@
  *    have already been removed by the external code.
  */
 import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import { setCreateRoot } from '@arco-design/web-react/es/_util/react-dom';
+
+// Initialize arco-design for React 19
+// See: https://arco.design/react/en-US/docs/start#react-19
+setCreateRoot(createRoot);
 
 // Polyfill findDOMNode
 if (typeof (ReactDOM as any).findDOMNode !== 'function') {

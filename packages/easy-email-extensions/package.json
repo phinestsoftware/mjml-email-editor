@@ -1,12 +1,13 @@
 {
-  "name": "easy-email-extensions",
+  "name": "@phinestsoftware/easy-email-extensions",
   "license": "MIT",
-  "description": "Email editor",
-  "version": "4.16.5",
-  "author": "m-Ryan",
+  "description": "MJML-based email editor extensions - React 19 compatible fork",
+  "version": "1.0.0",
+  "author": "phinestsoftware",
   "repository": {
     "type": "git",
-    "url": "git@github.com:zalify/easy-email.git"
+    "url": "https://github.com/phinestsoftware/mjml-email-editor.git",
+    "directory": "packages/easy-email-extensions"
   },
   "keywords": [
     "email editor core"
@@ -43,9 +44,9 @@
     "@types/jsdom": "^16.2.13",
     "@types/lodash": "^4.14.178",
     "@types/node": "^16.11.7",
-    "@types/react": "^18.2.2",
+    "@types/react": "^19.0.0",
     "@types/react-color": "^3.0.6",
-    "@types/react-dom": "^18.2.3",
+    "@types/react-dom": "^19.0.0",
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
@@ -63,8 +64,8 @@
     "jsdom": "^17.0.0",
     "lerna": "^4.0.0",
     "less": "^4.1.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-final-form": "^6.5.7",
     "rimraf": "^5.0.5",
     "rollup-plugin-visualizer": "^5.5.2",
@@ -95,8 +96,8 @@
     "uuid": "^9.0.1"
   },
   "peerDependencies": {
-    "easy-email-core": "^4.3.6",
-    "easy-email-editor": "^4.3.6",
+    "@phinestsoftware/easy-email-core": "^1.0.0",
+    "@phinestsoftware/easy-email-editor": "^1.0.0",
     "react": "^18.2.0 || ^19.0.0",
     "react-dom": "^18.2.0 || ^19.0.0",
     "react-final-form": "^6.5.7 || ^7.0.0"

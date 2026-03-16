@@ -51,14 +51,302 @@ var __async = (__this, __arguments, generator) => {
   });
 };
 import ReactDOM, { createPortal } from "react-dom";
+import { createRoot as createRoot$1 } from "react-dom/client";
 import * as React from "react";
-import React__default, { createContext, useContext, isValidElement, Children, cloneElement, Component, useRef, useMemo, memo, forwardRef, createRef, useState, useImperativeHandle, useEffect, useLayoutEffect, useCallback, PureComponent, useReducer, Fragment, Suspense } from "react";
+import React__default, { isValidElement, Component, createContext, useContext, Children, cloneElement, useRef, useMemo, memo, forwardRef, createRef, useState, useImperativeHandle, useEffect, useLayoutEffect, useCallback, PureComponent, useReducer, Fragment, Suspense } from "react";
 import { IconFont, useEditorProps, Stack as Stack$4, useRefState, getShadowRoot, DATA_CONTENT_EDITABLE_TYPE, ContentEditableType, TextStyle, useEditorContext, useBlock, useFocusIdx, DATA_CONTENT_EDITABLE_IDX, useFocusBlockLayout, MergeTagBadge, AvailableTools, FIXED_CONTAINER_ID, getPluginElement, RICH_TEXT_BAR_ID, CONTENT_EDITABLE_CLASS_NAME, getEditorRoot, scrollBlockEleIntoView, useHoverIdx, useDataTransfer, getBlockNodeByChildEle, getDirectionPosition, DATA_ATTRIBUTE_DROP_CONTAINER, BlockAvatarWrapper, isTextBlock, getBlockNodeByIdx, useLazyState, useActiveTab, ActiveTabKeys } from "easy-email-editor";
 import { BasicType, ImageManager, EMAIL_BLOCK_CLASS_NAME, BlockManager, createBlockDataByType, AdvancedType, Operator, OperatorSymbol, isAdvancedBlock, getParentByIdx, getParentIdx, getIndexByIdx, getSiblingIdx, getNodeIdxFromClassName, getNodeIdxClassName, getPageIdx, getChildIdx, JsonToMjml, getNodeTypeFromClassName } from "easy-email-core";
 import { Field, useForm as useForm$1, useField, Form as Form$3, version as version$2, useFormState as useFormState$2 } from "react-final-form";
 import { v4 } from "uuid";
-import { createRoot as createRoot$1 } from "react-dom/client";
 import mjml from "mjml-browser";
+var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
+var reactIs = { exports: {} };
+var reactIs_production_min = {};
+/**
+ * @license React
+ * react-is.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+var b = Symbol.for("react.element"), c = Symbol.for("react.portal"), d = Symbol.for("react.fragment"), e$1 = Symbol.for("react.strict_mode"), f = Symbol.for("react.profiler"), g = Symbol.for("react.provider"), h = Symbol.for("react.context"), k = Symbol.for("react.server_context"), l = Symbol.for("react.forward_ref"), m = Symbol.for("react.suspense"), n$1 = Symbol.for("react.suspense_list"), p = Symbol.for("react.memo"), q = Symbol.for("react.lazy"), t$2 = Symbol.for("react.offscreen"), u;
+u = Symbol.for("react.module.reference");
+function v(a) {
+  if ("object" === typeof a && null !== a) {
+    var r2 = a.$$typeof;
+    switch (r2) {
+      case b:
+        switch (a = a.type, a) {
+          case d:
+          case f:
+          case e$1:
+          case m:
+          case n$1:
+            return a;
+          default:
+            switch (a = a && a.$$typeof, a) {
+              case k:
+              case h:
+              case l:
+              case q:
+              case p:
+              case g:
+                return a;
+              default:
+                return r2;
+            }
+        }
+      case c:
+        return r2;
+    }
+  }
+}
+reactIs_production_min.ContextConsumer = h;
+reactIs_production_min.ContextProvider = g;
+reactIs_production_min.Element = b;
+reactIs_production_min.ForwardRef = l;
+reactIs_production_min.Fragment = d;
+reactIs_production_min.Lazy = q;
+reactIs_production_min.Memo = p;
+reactIs_production_min.Portal = c;
+reactIs_production_min.Profiler = f;
+reactIs_production_min.StrictMode = e$1;
+reactIs_production_min.Suspense = m;
+reactIs_production_min.SuspenseList = n$1;
+reactIs_production_min.isAsyncMode = function() {
+  return false;
+};
+reactIs_production_min.isConcurrentMode = function() {
+  return false;
+};
+reactIs_production_min.isContextConsumer = function(a) {
+  return v(a) === h;
+};
+reactIs_production_min.isContextProvider = function(a) {
+  return v(a) === g;
+};
+reactIs_production_min.isElement = function(a) {
+  return "object" === typeof a && null !== a && a.$$typeof === b;
+};
+reactIs_production_min.isForwardRef = function(a) {
+  return v(a) === l;
+};
+reactIs_production_min.isFragment = function(a) {
+  return v(a) === d;
+};
+reactIs_production_min.isLazy = function(a) {
+  return v(a) === q;
+};
+reactIs_production_min.isMemo = function(a) {
+  return v(a) === p;
+};
+reactIs_production_min.isPortal = function(a) {
+  return v(a) === c;
+};
+reactIs_production_min.isProfiler = function(a) {
+  return v(a) === f;
+};
+reactIs_production_min.isStrictMode = function(a) {
+  return v(a) === e$1;
+};
+reactIs_production_min.isSuspense = function(a) {
+  return v(a) === m;
+};
+reactIs_production_min.isSuspenseList = function(a) {
+  return v(a) === n$1;
+};
+reactIs_production_min.isValidElementType = function(a) {
+  return "string" === typeof a || "function" === typeof a || a === d || a === f || a === e$1 || a === m || a === n$1 || a === t$2 || "object" === typeof a && null !== a && (a.$$typeof === q || a.$$typeof === p || a.$$typeof === g || a.$$typeof === h || a.$$typeof === l || a.$$typeof === u || void 0 !== a.getModuleId) ? true : false;
+};
+reactIs_production_min.typeOf = v;
+{
+  reactIs.exports = reactIs_production_min;
+}
+var _a, _b;
+var opt$1 = Object.prototype.toString;
+function isArray$c(obj) {
+  return opt$1.call(obj) === "[object Array]";
+}
+function isObject$e(obj) {
+  return opt$1.call(obj) === "[object Object]";
+}
+function isString$1(obj) {
+  return opt$1.call(obj) === "[object String]";
+}
+function isNumber$2(obj) {
+  return opt$1.call(obj) === "[object Number]" && obj === obj;
+}
+function isUndefined(obj) {
+  return obj === void 0;
+}
+function isNull(obj) {
+  return obj === null;
+}
+function isNullOrUndefined(obj) {
+  return obj === null || obj === void 0;
+}
+function isFunction$5(obj) {
+  return typeof obj === "function";
+}
+function isEmptyObject$1(obj) {
+  return isObject$e(obj) && Object.keys(obj).length === 0;
+}
+function isEmptyReactNode(content, trim) {
+  if (content === null || content === void 0 || content === false) {
+    return true;
+  }
+  if (typeof content === "string" && (trim ? content.trim() === "" : content === "")) {
+    return true;
+  }
+  return false;
+}
+function isExist(obj) {
+  return obj || obj === 0;
+}
+function isBoolean$1(value) {
+  return typeof value === "boolean";
+}
+var isReactComponent = function(element) {
+  return element && isValidElement(element) && typeof element.type === "function";
+};
+var isClassComponent = function(element) {
+  var _a2;
+  return isReactComponent(element) && !!((_a2 = element.type.prototype) === null || _a2 === void 0 ? void 0 : _a2.isReactComponent);
+};
+var isDOMElement = function(element) {
+  return isValidElement(element) && typeof element.type === "string";
+};
+var isReact18 = Number((_a = ReactDOM.version) === null || _a === void 0 ? void 0 : _a.split(".")[0]) > 17;
+var isReact19 = Number((_b = ReactDOM.version) === null || _b === void 0 ? void 0 : _b.split(".")[0]) > 18;
+var isForwardRefReact = function(object) {
+  if (!isReact19) {
+    return reactIs.exports.isForwardRef(object);
+  }
+  var REACT_ELEMENT_TYPE = Symbol.for("react.element");
+  var NEW_REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element");
+  var REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref");
+  if (typeof object === "object" && object !== null) {
+    var $$typeof = object.$$typeof;
+    if ($$typeof === REACT_ELEMENT_TYPE || $$typeof === NEW_REACT_ELEMENT_TYPE) {
+      var type = object.type;
+      var $$typeofType = type && type.$$typeof;
+      return $$typeofType === REACT_FORWARD_REF_TYPE;
+    }
+  }
+  return false;
+};
+var supportRef = function(element) {
+  if (isDOMElement(element)) {
+    return true;
+  }
+  if (isForwardRefReact(element)) {
+    return true;
+  }
+  if (isReactComponent(element)) {
+    return isClassComponent(element);
+  }
+  return false;
+};
+function warning(condition, message) {
+}
+var __SECRET_INTERNALS__ = "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED";
+var CopyReactDOM = ReactDOM;
+var updateUsingClientEntryPoint = function(skipWarning) {
+  if (isObject$e(CopyReactDOM[__SECRET_INTERNALS__])) {
+    CopyReactDOM[__SECRET_INTERNALS__].usingClientEntryPoint = skipWarning;
+  }
+};
+var createRoot;
+try {
+  createRoot = CopyReactDOM.createRoot;
+} catch (_) {
+}
+var copyRender;
+var setCopyRender = function() {
+  if (isReact18 && createRoot) {
+    copyRender = function(app, container2) {
+      updateUsingClientEntryPoint(true);
+      var root2 = createRoot(container2);
+      updateUsingClientEntryPoint(false);
+      root2.render(app);
+      root2._unmount = function() {
+        setTimeout(function() {
+          var _a2;
+          (_a2 = root2 === null || root2 === void 0 ? void 0 : root2.unmount) === null || _a2 === void 0 ? void 0 : _a2.call(root2);
+        });
+      };
+      return root2;
+    };
+  } else {
+    copyRender = function(app, container2) {
+      CopyReactDOM.render(app, container2);
+      return {
+        render: function(app2) {
+          CopyReactDOM.render(app2, container2);
+        },
+        _unmount: function() {
+          CopyReactDOM.unmountComponentAtNode(container2);
+        }
+      };
+    };
+  }
+};
+var warnedInstancesWeakSet;
+function hasInstanceWarned(instance) {
+  var ctor = instance.constructor;
+  if (typeof ctor !== "function")
+    return false;
+  if (!warnedInstancesWeakSet && typeof WeakSet === "function") {
+    warnedInstancesWeakSet = /* @__PURE__ */ new WeakSet();
+  }
+  var hasWarned = !!(warnedInstancesWeakSet === null || warnedInstancesWeakSet === void 0 ? void 0 : warnedInstancesWeakSet.has(ctor));
+  warnedInstancesWeakSet === null || warnedInstancesWeakSet === void 0 ? void 0 : warnedInstancesWeakSet.add(ctor);
+  return hasWarned;
+}
+var findDOMNode = function(element, instance) {
+  if (element && element instanceof Element) {
+    return element;
+  }
+  if (element && element.current && element.current instanceof Element) {
+    return element.current;
+  }
+  if (element && isFunction$5(element.getRootDOMNode)) {
+    return element.getRootDOMNode();
+  }
+  if (element instanceof Component) {
+    if (ReactDOM.findDOMNode) {
+      return ReactDOM.findDOMNode(element);
+    }
+  }
+  if (instance) {
+    warning(isReact18 && !hasInstanceWarned(instance));
+    if (ReactDOM.findDOMNode) {
+      return ReactDOM.findDOMNode(instance);
+    }
+  }
+  return null;
+};
+var callbackOriginRef = function(children, node) {
+  if (children && children.ref) {
+    if (isFunction$5(children.ref)) {
+      children === null || children === void 0 ? void 0 : children.ref(node);
+    }
+    if ("current" in children.ref) {
+      children.ref.current = node;
+    }
+  }
+};
+var setCreateRoot = function(_createRoot) {
+  createRoot = _createRoot;
+  setCopyRender();
+};
+setCopyRender();
+var render = function(node, el) {
+  return copyRender(node, el);
+};
+setCreateRoot(createRoot$1);
 if (typeof ReactDOM.findDOMNode !== "function") {
   ReactDOM.findDOMNode = function findDOMNodePolyfill(componentOrElement) {
     if (componentOrElement == null) {
@@ -92,7 +380,6 @@ const title = "_title_1f523_1";
 var styles$b = {
   title
 };
-var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 var lodash = { exports: {} };
 /**
  * @license
@@ -5933,197 +6220,6 @@ IconClose.defaultProps = {
 };
 IconClose.displayName = "IconClose";
 var IconClose$1 = IconClose;
-var reactIs = { exports: {} };
-var reactIs_production_min = {};
-/**
- * @license React
- * react-is.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-var b = Symbol.for("react.element"), c = Symbol.for("react.portal"), d = Symbol.for("react.fragment"), e$1 = Symbol.for("react.strict_mode"), f = Symbol.for("react.profiler"), g = Symbol.for("react.provider"), h = Symbol.for("react.context"), k = Symbol.for("react.server_context"), l = Symbol.for("react.forward_ref"), m = Symbol.for("react.suspense"), n$1 = Symbol.for("react.suspense_list"), p = Symbol.for("react.memo"), q = Symbol.for("react.lazy"), t$2 = Symbol.for("react.offscreen"), u;
-u = Symbol.for("react.module.reference");
-function v(a) {
-  if ("object" === typeof a && null !== a) {
-    var r2 = a.$$typeof;
-    switch (r2) {
-      case b:
-        switch (a = a.type, a) {
-          case d:
-          case f:
-          case e$1:
-          case m:
-          case n$1:
-            return a;
-          default:
-            switch (a = a && a.$$typeof, a) {
-              case k:
-              case h:
-              case l:
-              case q:
-              case p:
-              case g:
-                return a;
-              default:
-                return r2;
-            }
-        }
-      case c:
-        return r2;
-    }
-  }
-}
-reactIs_production_min.ContextConsumer = h;
-reactIs_production_min.ContextProvider = g;
-reactIs_production_min.Element = b;
-reactIs_production_min.ForwardRef = l;
-reactIs_production_min.Fragment = d;
-reactIs_production_min.Lazy = q;
-reactIs_production_min.Memo = p;
-reactIs_production_min.Portal = c;
-reactIs_production_min.Profiler = f;
-reactIs_production_min.StrictMode = e$1;
-reactIs_production_min.Suspense = m;
-reactIs_production_min.SuspenseList = n$1;
-reactIs_production_min.isAsyncMode = function() {
-  return false;
-};
-reactIs_production_min.isConcurrentMode = function() {
-  return false;
-};
-reactIs_production_min.isContextConsumer = function(a) {
-  return v(a) === h;
-};
-reactIs_production_min.isContextProvider = function(a) {
-  return v(a) === g;
-};
-reactIs_production_min.isElement = function(a) {
-  return "object" === typeof a && null !== a && a.$$typeof === b;
-};
-reactIs_production_min.isForwardRef = function(a) {
-  return v(a) === l;
-};
-reactIs_production_min.isFragment = function(a) {
-  return v(a) === d;
-};
-reactIs_production_min.isLazy = function(a) {
-  return v(a) === q;
-};
-reactIs_production_min.isMemo = function(a) {
-  return v(a) === p;
-};
-reactIs_production_min.isPortal = function(a) {
-  return v(a) === c;
-};
-reactIs_production_min.isProfiler = function(a) {
-  return v(a) === f;
-};
-reactIs_production_min.isStrictMode = function(a) {
-  return v(a) === e$1;
-};
-reactIs_production_min.isSuspense = function(a) {
-  return v(a) === m;
-};
-reactIs_production_min.isSuspenseList = function(a) {
-  return v(a) === n$1;
-};
-reactIs_production_min.isValidElementType = function(a) {
-  return "string" === typeof a || "function" === typeof a || a === d || a === f || a === e$1 || a === m || a === n$1 || a === t$2 || "object" === typeof a && null !== a && (a.$$typeof === q || a.$$typeof === p || a.$$typeof === g || a.$$typeof === h || a.$$typeof === l || a.$$typeof === u || void 0 !== a.getModuleId) ? true : false;
-};
-reactIs_production_min.typeOf = v;
-{
-  reactIs.exports = reactIs_production_min;
-}
-var _a, _b;
-var opt$1 = Object.prototype.toString;
-function isArray$c(obj) {
-  return opt$1.call(obj) === "[object Array]";
-}
-function isObject$e(obj) {
-  return opt$1.call(obj) === "[object Object]";
-}
-function isString$1(obj) {
-  return opt$1.call(obj) === "[object String]";
-}
-function isNumber$2(obj) {
-  return opt$1.call(obj) === "[object Number]" && obj === obj;
-}
-function isUndefined(obj) {
-  return obj === void 0;
-}
-function isNull(obj) {
-  return obj === null;
-}
-function isNullOrUndefined(obj) {
-  return obj === null || obj === void 0;
-}
-function isFunction$5(obj) {
-  return typeof obj === "function";
-}
-function isEmptyObject$1(obj) {
-  return isObject$e(obj) && Object.keys(obj).length === 0;
-}
-function isEmptyReactNode(content, trim) {
-  if (content === null || content === void 0 || content === false) {
-    return true;
-  }
-  if (typeof content === "string" && (trim ? content.trim() === "" : content === "")) {
-    return true;
-  }
-  return false;
-}
-function isExist(obj) {
-  return obj || obj === 0;
-}
-function isBoolean$1(value) {
-  return typeof value === "boolean";
-}
-var isReactComponent = function(element) {
-  return element && isValidElement(element) && typeof element.type === "function";
-};
-var isClassComponent = function(element) {
-  var _a2;
-  return isReactComponent(element) && !!((_a2 = element.type.prototype) === null || _a2 === void 0 ? void 0 : _a2.isReactComponent);
-};
-var isDOMElement = function(element) {
-  return isValidElement(element) && typeof element.type === "string";
-};
-var isReact18 = Number((_a = ReactDOM.version) === null || _a === void 0 ? void 0 : _a.split(".")[0]) > 17;
-var isReact19 = Number((_b = ReactDOM.version) === null || _b === void 0 ? void 0 : _b.split(".")[0]) > 18;
-var isForwardRefReact = function(object) {
-  if (!isReact19) {
-    return reactIs.exports.isForwardRef(object);
-  }
-  var REACT_ELEMENT_TYPE = Symbol.for("react.element");
-  var NEW_REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element");
-  var REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref");
-  if (typeof object === "object" && object !== null) {
-    var $$typeof = object.$$typeof;
-    if ($$typeof === REACT_ELEMENT_TYPE || $$typeof === NEW_REACT_ELEMENT_TYPE) {
-      var type = object.type;
-      var $$typeofType = type && type.$$typeof;
-      return $$typeofType === REACT_FORWARD_REF_TYPE;
-    }
-  }
-  return false;
-};
-var supportRef = function(element) {
-  if (isDOMElement(element)) {
-    return true;
-  }
-  if (isForwardRefReact(element)) {
-    return true;
-  }
-  if (isReactComponent(element)) {
-    return isClassComponent(element);
-  }
-  return false;
-};
-function warning(condition, message) {
-}
 var __read$1r = globalThis && globalThis.__read || function(o, n2) {
   var m2 = typeof Symbol === "function" && o[Symbol.iterator];
   if (!m2)
@@ -7061,97 +7157,6 @@ SwitchTransition.defaultProps = {
   mode: modes.out
 };
 var SwitchTransition$1 = SwitchTransition;
-var __SECRET_INTERNALS__ = "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED";
-var CopyReactDOM = ReactDOM;
-var updateUsingClientEntryPoint = function(skipWarning) {
-  if (isObject$e(CopyReactDOM[__SECRET_INTERNALS__])) {
-    CopyReactDOM[__SECRET_INTERNALS__].usingClientEntryPoint = skipWarning;
-  }
-};
-var createRoot;
-try {
-  createRoot = CopyReactDOM.createRoot;
-} catch (_) {
-}
-var copyRender;
-var setCopyRender = function() {
-  if (isReact18 && createRoot) {
-    copyRender = function(app, container2) {
-      updateUsingClientEntryPoint(true);
-      var root2 = createRoot(container2);
-      updateUsingClientEntryPoint(false);
-      root2.render(app);
-      root2._unmount = function() {
-        setTimeout(function() {
-          var _a2;
-          (_a2 = root2 === null || root2 === void 0 ? void 0 : root2.unmount) === null || _a2 === void 0 ? void 0 : _a2.call(root2);
-        });
-      };
-      return root2;
-    };
-  } else {
-    copyRender = function(app, container2) {
-      CopyReactDOM.render(app, container2);
-      return {
-        render: function(app2) {
-          CopyReactDOM.render(app2, container2);
-        },
-        _unmount: function() {
-          CopyReactDOM.unmountComponentAtNode(container2);
-        }
-      };
-    };
-  }
-};
-var warnedInstancesWeakSet;
-function hasInstanceWarned(instance) {
-  var ctor = instance.constructor;
-  if (typeof ctor !== "function")
-    return false;
-  if (!warnedInstancesWeakSet && typeof WeakSet === "function") {
-    warnedInstancesWeakSet = /* @__PURE__ */ new WeakSet();
-  }
-  var hasWarned = !!(warnedInstancesWeakSet === null || warnedInstancesWeakSet === void 0 ? void 0 : warnedInstancesWeakSet.has(ctor));
-  warnedInstancesWeakSet === null || warnedInstancesWeakSet === void 0 ? void 0 : warnedInstancesWeakSet.add(ctor);
-  return hasWarned;
-}
-var findDOMNode = function(element, instance) {
-  if (element && element instanceof Element) {
-    return element;
-  }
-  if (element && element.current && element.current instanceof Element) {
-    return element.current;
-  }
-  if (element && isFunction$5(element.getRootDOMNode)) {
-    return element.getRootDOMNode();
-  }
-  if (element instanceof Component) {
-    if (ReactDOM.findDOMNode) {
-      return ReactDOM.findDOMNode(element);
-    }
-  }
-  if (instance) {
-    warning(isReact18 && !hasInstanceWarned(instance));
-    if (ReactDOM.findDOMNode) {
-      return ReactDOM.findDOMNode(instance);
-    }
-  }
-  return null;
-};
-var callbackOriginRef = function(children, node) {
-  if (children && children.ref) {
-    if (isFunction$5(children.ref)) {
-      children === null || children === void 0 ? void 0 : children.ref(node);
-    }
-    if ("current" in children.ref) {
-      children.ref.current = node;
-    }
-  }
-};
-setCopyRender();
-var render = function(node, el) {
-  return copyRender(node, el);
-};
 var __assign$1P = globalThis && globalThis.__assign || function() {
   __assign$1P = Object.assign || function(t2) {
     for (var s, i2 = 1, n2 = arguments.length; i2 < n2; i2++) {
@@ -42189,7 +42194,7 @@ function TableOperation() {
   const bottomRef = useRef(null);
   const leftRef = useRef(null);
   const rightRef = useRef(null);
-  const tool = useRef();
+  const tool = useRef(void 0);
   const portalTarget = (shadowRoot == null ? void 0 : shadowRoot.querySelector("body")) || null;
   useEffect(() => {
     if (!portalTarget)

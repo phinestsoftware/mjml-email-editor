@@ -1,3 +1,4 @@
+import React from 'react';
 import { IBlockData } from 'easy-email-core';
 
 export interface BlockMarketCategory {
@@ -9,7 +10,7 @@ export interface BlockMarketCategory {
     description?: React.ReactNode;
     thumbnail?: string;
     payload?: IBlockData;
-    component: () => JSX.Element | null;
+    component: () => React.JSX.Element | null;
   }[];
 }
 
@@ -56,7 +57,7 @@ export class BlockMarketManager {
       type: string;
       title: string;
       description?: React.ReactNode;
-      component: () => JSX.Element | null;
+      component: () => React.JSX.Element | null;
     }[]
   ) {
     const index = this.category.findIndex((item) => item.name === name);

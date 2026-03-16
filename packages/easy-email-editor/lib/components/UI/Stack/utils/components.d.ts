@@ -7,10 +7,10 @@ interface ConditionalWrapperProps {
     condition: boolean;
     wrapper: (children: any) => any;
 }
-export declare function ConditionalWrapper({ condition, wrapper, children, }: ConditionalWrapperProps): JSX.Element;
+export declare function ConditionalWrapper({ condition, wrapper, children, }: ConditionalWrapperProps): React.JSX.Element;
 interface ConditionalRenderProps {
     condition: boolean;
     children: any;
 }
-export declare function ConditionalRender({ condition, children, }: ConditionalRenderProps): JSX.Element;
+export declare function ConditionalRender({ condition, children, }: ConditionalRenderProps): React.JSX.Element;
 export {};

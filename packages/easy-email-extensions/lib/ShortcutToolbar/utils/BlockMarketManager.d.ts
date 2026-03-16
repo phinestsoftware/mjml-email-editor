@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 import { IBlockData } from 'easy-email-core';
 export interface BlockMarketCategory {
     name: string;
@@ -9,7 +9,7 @@ export interface BlockMarketCategory {
         description?: React.ReactNode;
         thumbnail?: string;
         payload?: IBlockData;
-        component: () => JSX.Element | null;
+        component: () => React.JSX.Element | null;
     }[];
 }
 export declare class BlockMarketManager {
@@ -25,7 +25,7 @@ export declare class BlockMarketManager {
         type: string;
         title: string;
         description?: React.ReactNode;
-        component: () => JSX.Element | null;
+        component: () => React.JSX.Element | null;
     }[]): void;
     static removeCategories(list: BlockMarketCategory[]): void;
     static removeCategory(name: string): void;
