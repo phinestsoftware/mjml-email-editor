@@ -1,3 +1,4 @@
+import './react-dom-polyfill';
 import './index.scss';
 
 export * from './BlockLayer';

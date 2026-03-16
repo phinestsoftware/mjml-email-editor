@@ -43,19 +43,24 @@ export function AttributePanel() {
         </div>
         <TableOperation />
         <>
-          {shadowRoot &&
-            ReactDOM.createPortal(
-              <style>
-                {`
+          {shadowRoot && (() => {
+            // In React 19, createPortal into a ShadowRoot directly causes removeChild errors.
+            // Instead, inject the style element imperatively.
+            let styleEl = shadowRoot.querySelector('style[data-attr-panel]');
+            if (!styleEl) {
+              styleEl = document.createElement('style');
+              styleEl.setAttribute('data-attr-panel', 'true');
+              styleEl.textContent = `
               .email-block [contentEditable="true"],
               .email-block [contentEditable="true"] * {
                 outline: none;
                 cursor: text;
               }
-              `}
-              </style>,
-              shadowRoot as any,
-            )}
+              `;
+              shadowRoot.appendChild(styleEl);
+            }
+            return null;
+          })()}
         </>
       </PresetColorsProvider>
     </SelectionRangeProvider>

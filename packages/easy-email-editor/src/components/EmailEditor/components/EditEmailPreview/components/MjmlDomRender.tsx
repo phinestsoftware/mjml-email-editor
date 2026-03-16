@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import mjml from 'mjml-browser';
 import { getPageIdx, IPage, JsonToMjml } from 'easy-email-core';
 import { cloneDeep, isEqual } from 'lodash';
@@ -14,6 +14,7 @@ export function MjmlDomRender() {
   const { pageData: content } = useEditorContext();
   const [pageData, setPageData] = useState<IPage | null>(null);
   const [ref, setRef] = useState<HTMLDivElement | null>(null);
+  const [contentContainer, setContentContainer] = useState<HTMLDivElement | null>(null);
   const { dashed, mergeTags, enabledMergeTagsBadge } = useEditorProps();
   const [isTextFocus, setIsTextFocus] = useState(false);
 
@@ -66,6 +67,16 @@ export function MjmlDomRender() {
     };
   }, []);
 
+  // Create a separate container for MJML content to avoid React 19 removeChild conflicts
+  useEffect(() => {
+    if (ref && !contentContainer) {
+      const container = document.createElement('div');
+      container.style.cssText = 'width:100%;height:100%';
+      ref.appendChild(container);
+      setContentContainer(container);
+    }
+  }, [ref, contentContainer]);
+
   const html = useMemo(() => {
     if (!pageData) return '';
 
@@ -97,15 +108,15 @@ export function MjmlDomRender() {
         tabIndex={0}
       >
         <>
-          {ref &&
+          {contentContainer &&
             createPortal(
               HtmlStringToReactNodes(html, {
                 enabledMergeTagsBadge: Boolean(enabledMergeTagsBadge),
               }),
-              ref,
+              contentContainer,
             )}
         </>
       </div>
     );
-  }, [dashed, ref, html, enabledMergeTagsBadge]);
+  }, [dashed, contentContainer, html, enabledMergeTagsBadge]);
 }

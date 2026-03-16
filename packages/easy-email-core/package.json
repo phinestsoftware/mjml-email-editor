@@ -78,8 +78,8 @@
     "uuid": "^8.3.2"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
   },
   "gitHead": "f6cf54160ffdba0d4d6b23483293dd9190d2d2c2"
 }

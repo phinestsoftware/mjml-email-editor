@@ -14,7 +14,10 @@ export function TableOperation() {
   const rightRef = useRef(null);
   const tool = useRef<TableColumnTool>();
 
+  const portalTarget = shadowRoot?.querySelector('body') || null;
+
   useEffect(() => {
+    if (!portalTarget) return;
     const borderTool: any = {
       top: topRef.current,
       bottom: bottomRef.current,
@@ -23,12 +26,12 @@ export function TableOperation() {
     };
     tool.current = new TableColumnTool(
       borderTool,
-      shadowRoot.querySelector('body') as any,
+      portalTarget as any,
     );
     return () => {
       tool.current?.destroy();
     };
-  }, []);
+  }, [portalTarget]);
 
   useEffect(() => {
     if (tool.current) {
@@ -41,7 +44,7 @@ export function TableOperation() {
 
   return (
     <>
-      {shadowRoot &&
+      {portalTarget &&
         createPortal(
           <>
             <div>
@@ -51,7 +54,7 @@ export function TableOperation() {
               <div ref={rightRef} />
             </div>
           </>,
-          shadowRoot.querySelector('body') as any,
+          portalTarget,
         )}
     </>
   );

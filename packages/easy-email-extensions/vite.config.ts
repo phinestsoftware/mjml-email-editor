@@ -36,6 +36,7 @@ export default defineConfig({
       external: [
         'react',
         'react-dom',
+        'react-dom/client',
         'react-dom/server',
         'mjml-browser',
         'react-final-form',

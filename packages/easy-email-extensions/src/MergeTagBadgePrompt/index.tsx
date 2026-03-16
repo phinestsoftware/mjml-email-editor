@@ -135,7 +135,17 @@ export function MergeTagBadgePrompt() {
   return (
     <>
 
-      {root && createPortal(<style>{stylesText}</style>, root as any)}
+      {root && (() => {
+        // Inject style imperatively to avoid React 19 removeChild errors with ShadowRoot portals
+        let styleEl = root.querySelector('style[data-merge-tag-badge]');
+        if (!styleEl) {
+          styleEl = document.createElement('style');
+          styleEl.setAttribute('data-merge-tag-badge', 'true');
+          styleEl.textContent = stylesText;
+          root.appendChild(styleEl);
+        }
+        return null;
+      })()}
       {textContainer && createPortal(
         <div ref={popoverRef} onClick={onClick} className={classnames('easy-email-merge-tag-popover')}>
           <div className='easy-email-merge-tag-popover-container'>
